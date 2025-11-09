@@ -1,16 +1,13 @@
 package com.example.ejerciciolistview
-
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ejerciciolistview.databinding.ActivityModulosBinding
 import androidx.core.graphics.toColorInt
-
 class ActivityModulos : AppCompatActivity() {
 
     private lateinit var bindin: ActivityModulosBinding
-
     companion object{
         const val CICLO_SELECCIONADO = "ciclo"
     }

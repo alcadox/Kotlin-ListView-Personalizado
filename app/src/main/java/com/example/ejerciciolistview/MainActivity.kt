@@ -1,18 +1,12 @@
 package com.example.ejerciciolistview
-
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ejerciciolistview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var adaptadorPersonas: MiAdaptadorPersonas
-
     private val listaPersonas = mutableListOf(
         Personas("Alejandro", "Castillo Durillo", "Hombre", "DAM"),
         Personas("Avril", "Merino Moreno", "Mujer", "DAW"),
@@ -29,19 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.listViewPersonas.adapter = adaptadorPersonas
 
-        binding.listViewPersonas.onItemClickListener = AdapterView.OnItemClickListener {
-            parent, view, position, id ->
-
-            val persona = listaPersonas[position]
-
-            Toast.makeText(
-                this,
-                "${persona.nombre} - ${persona.apellidos}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
-        binding.listViewPersonas.setOnItemClickListener { parent, view, position, id ->
+        binding.listViewPersonas.setOnItemClickListener { parent, _, position, _ ->
             val personaSeleccionada = parent.getItemAtPosition(position) as Personas
 
             val intent = Intent(this, ActivityModulos::class.java)
